@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Aditya Rizky Ramadhan | Fullstack Developer</title>
+    <meta name="description" content="Portfolio profesional Aditya Rizky Ramadhan, Fullstack Developer dengan keahlian dalam JavaScript, PHP, React, Vue, dan Laravel.">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --primary-hover: #0b5ed7;
+            --secondary-color: #6c757d;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+            --bg-color: #ffffff;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        .dark-mode {
+            --primary-color: #4dabf7;
+            --primary-hover: #339af0;
+            --secondary-color: #868e96;
+            --dark-color: #121212;
+            --light-color: #1e1e1e;
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --card-bg: #1e1e1e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: var(--transition);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .navbar {
+            transition: var(--transition);
+            background-color: var(--dark-color) !important;
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+        
+        #hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .skill-card {
+            transition: var(--transition);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            height: 100%;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card {
+            transition: var(--transition);
+            height: 100%;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card img {
+            transition: var(--transition);
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .project-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        #contact {
+            background-color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(0,0,0,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .form-control, .form-control:focus {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 0.75rem 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.75rem 2rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-light:hover {
+            color: var(--primary-color);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 10px;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -28px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid var(--bg-color);
+        }
+        
+        .language-switcher, .theme-switcher {
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-left: 0.5rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .language-switcher:hover, .theme-switcher:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 2px;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            display: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+        }
+        
+        .back-to-top.show {
+            display: block;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1199.98px) {
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background-color: var(--dark-color);
+                padding: 1rem;
+                border-radius: 0.25rem;
+                margin-top: 0.5rem;
+            }
+            
+            .language-switcher, .theme-switcher {
+                margin-left: 0;
+                margin-right: 0.5rem;
+            }
+            
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            #hero {
+                padding: 100px 0 80px;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .project-card img {
+                height: 150px;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -18px;
+                width: 12px;
+                height: 12px;
+            }
+            
+            .btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .btn-lg {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            #hero {
+                padding: 80px 0 60px;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .section-title::after {
+                width: 40px;
+                height: 2px;
+                bottom: -8px;
+            }
+            
+            .card-body {
+                padding: 1.25rem;
+            }
+            
+            .form-control, .form-control:focus {
+                padding: 0.5rem 0.75rem;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                line-height: 30px;
+                font-size: 0.9rem;
+            }
+            
+            .d-flex.mt-4 {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .d-flex.mt-4 .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .project-tag {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.6rem;
+                margin-right: 0.3rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                margin: 0 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <span class="bg-primary rounded-circle p-2 me-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                    <span class="fw-bold">ARR</span>
+                </span>
+                Aditya Rizky Ramadhan
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" data-i18n="about">Tentang Saya</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills" data-i18n="skills">Skill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education" data-i18n="education">Pendidikan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects" data-i18n="projects">Projek</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-i18n="contact">Hubungi Saya</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
+                    <span class="language-switcher" id="idLanguage">
+                        <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="language-flag"> ID
+                    </span>
+                    <span class="language-switcher" id="enLanguage">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag"> EN
+                    </span>
+                    <span class="theme-switcher ms-2" id="themeToggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-center">
+        <div class="container position-relative">
+            <div class="floating">
+                <img src="image/Profil.jpg" 
+                     alt="Aditya Rizky Ramadhan" 
+                     class="profile-img rounded-circle mb-4 animate__animated animate__fadeIn">
+            </div>
+            <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeIn animate__delay-1s">Aditya Rizky Ramadhan</h1>
+            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s" data-i18n="jobTitle">Fullstack Developer</p>
+            <div class="animate__animated animate__fadeIn animate__delay-2s">
+                <a href="#contact" class="btn btn-light btn-lg px-4 me-2 me-sm-3" data-i18n="contactMe">Hubungi Saya</a>
+                <a href="#projects" class="btn btn-outline-light btn-lg px-4" data-i18n="viewProjects">Lihat Projek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="fw-bold mb-4 section-title" data-i18n="about">Tentang Saya</h2>
+                    <p class="lead" data-i18n="about1">Halo! Saya Aditya Rizky Ramadhan, seorang Fullstack Developer dengan passion dalam membangun aplikasi web yang indah dan fungsional.</p>
+                    <p data-i18n="about2">Saya memiliki pengalaman dalam mengembangkan aplikasi web menggunakan berbagai teknologi modern seperti JavaScript, PHP, dan framework populer seperti React, Vue, dan Laravel.</p>
+                    <p data-i18n="about3">Selain coding, saya menikmati mempelajari teknologi baru, berkolaborasi dalam tim, dan memecahkan masalah kompleks dengan solusi yang elegan.</p>
+                    <div class="d-flex mt-4">
+                        <a href="#contact" class="btn btn-primary me-3" data-i18n="contactMe">Hubungi Saya</a>
+                        <a href="#projects" class="btn btn-outline-primary" data-i18n="viewProjects">Projek Saya</a>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="card skill-card h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title" data-i18n="frontend">Frontend</h5>
+                                    <p class="card-text" data-i18n="frontendDesc">HTML, CSS, JavaScript, React, Vue</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card skill-card h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-server fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title" data-i18n="backend">Backend</h5>
+                                    <p class="card-text" data-i18n="backendDesc">PHP, Laravel, Node.js, MySQL</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card skill-card h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title" data-i18n="responsive">Responsive</h5>
+                                    <p class="card-text" data-i18n="responsiveDesc">Desain yang bekerja di semua perangkat</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card skill-card h-100">
+                                <div class="card-body text-center p-4">
+                                    <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title" data-i18n="fast">Cepat</h5>
+                                    <p class="card-text" data-i18n="fastDesc">Aplikasi cepat dan optimasi SEO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="skills">Skill</h2>
+            <div class="row g-4">
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fab fa-js fa-2x text-warning me-3"></i>
+                                <h5 class="card-title mb-0">JavaScript</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill1">Membangun aplikasi web interaktif dengan JavaScript modern (ES6+).</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fab fa-php fa-2x text-primary me-3"></i>
+                                <h5 class="card-title mb-0">PHP</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill2">Pengembangan backend dengan PHP untuk aplikasi web dinamis.</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fab fa-react fa-2x text-info me-3"></i>
+                                <h5 class="card-title mb-0">React</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill3">Membangun antarmuka pengguna yang efisien dengan React.js.</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fab fa-vuejs fa-2x text-success me-3"></i>
+                                <h5 class="card-title mb-0">Vue</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill4">Pengembangan aplikasi progresif dengan Vue.js.</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fab fa-laravel fa-2x text-danger me-3"></i>
+                                <h5 class="card-title mb-0">Laravel</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill5">Membangun aplikasi web yang skalabel dengan framework Laravel.</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card skill-card h-100">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-database fa-2x text-secondary me-3"></i>
+                                <h5 class="card-title mb-0" data-i18n="database">Database</h5>
+                            </div>
+                            <p class="card-text mb-3" data-i18n="skill6">Pengalaman dengan MySQL, PostgreSQL, dan Firebase.</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="education">Pendidikan</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title fw-bold mb-0">SMKN 36 Jakarta</h5>
+                                        <span class="badge bg-primary" data-i18n="education1">2022 - 2025</span>
+                                    </div>
+                                    <h6 class="card-subtitle mb-3 text-muted" data-i18n="automotive">Jurusan Otomotif</h6>
+                                    <p class="card-text" data-i18n="educationDesc1">Saya menempuh pendidikan kejuruan di bidang otomotif dengan fokus pada teknologi kendaraan bermotor.</p>
+                                    <div class="mt-3">
+                                        <span class="badge bg-light text-dark me-2" data-i18n="automotiveTech">Teknologi Otomotif</span>
+                                        <span class="badge bg-light text-dark me-2" data-i18n="engine">Mesin Kendaraan</span>
+                                        <span class="badge bg-light text-dark" data-i18n="maintenance">Perawatan</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title fw-bold mb-0">Bootcamp Eduwork</h5>
+                                        <span class="badge bg-primary" data-i18n="education2">2024 - 2025</span>
+                                    </div>
+                                    <h6 class="card-subtitle mb-3 text-muted" data-i18n="fullstack">Fullstack Developer</h6>
+                                    <p class="card-text" data-i18n="educationDesc2">Mengikuti program intensif Fullstack Developer yang mencakup frontend (HTML, CSS, JavaScript, React) dan backend (Node.js, Express, MongoDB).</p>
+                                    <div class="mt-3">
+                                        <span class="badge bg-light text-dark me-2">HTML/CSS</span>
+                                        <span class="badge bg-light text-dark me-2">JavaScript</span>
+                                        <span class="badge bg-light text-dark me-2">React</span>
+                                        <span class="badge bg-light text-dark me-2">Node.js</span>
+                                        <span class="badge bg-light text-dark">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="projects">Projek</h2>
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="card project-card h-100">
+                        <div class="overflow-hidden">
+                            <img src="image/ditmovie.jpg" 
+                                 class="card-img-top w-100" alt="Dittmovie">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Dittmovie</h5>
+                            <p class="card-text" data-i18n="project1">Aplikasi pencarian film berbasis web yang menggunakan API publik untuk menampilkan informasi film terbaru dan populer.</p>
+                            <div class="mb-3">
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">TMDB API</span>
+                                <span class="project-tag">Tailwind</span>
+                            </div>
+                            <div class="d-flex">
+                                <a href="https://ditttmovie.netlify.app" class="btn btn-primary me-2" data-i18n="viewProject">Lihat Projek</a>
+                                <a href="https://github.com/AdityaRizky12/movie.git" class="btn btn-outline-secondary" data-i18n="viewCode">Lihat Kode</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card project-card h-100">
+                        <div class="overflow-hidden">
+                            <img src="image/project.jpg" 
+                                 class="card-img-top w-100" alt="Pokemon">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Pokemon</h5>
+                            <p class="card-text" data-i18n="project2">Aplikasi katalog Pokemon yang menampilkan berbagai karakter Pokemon dengan detail kemampuan dan statistik.</p>
+                            <div class="mb-3">
+                                <span class="project-tag">Javascript</span>
+                                <span class="project-tag">PokeAPI</span>
+                                <span class="project-tag">Tailwind CSS</span>
+                            </div>
+                            <div class="d-flex">
+                                <a href="https://adityarizky12.github.io/Pokemon/" class="btn btn-primary me-2" data-i18n="viewProject">Lihat Projek</a>
+                                <a href="https://github.com/AdityaRizky12/Pokemon.git" class="btn btn-outline-secondary" data-i18n="viewCode">Lihat Kode</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-primary" data-i18n="viewAllProjects">Lihat Semua Projek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container position-relative">
+            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="contact">Hubungi Saya</h2>
+<div class="row justify-content-center">
+<div class="col-lg-8">
+<form id="contactForm" data-aos="fade-up">
+<div class="mb-4">
+<label for="name" class="form-label" data-i18n="name">Nama</label>
+<input type="text" class="form-control" id="name" required>
+</div>
+<div class="mb-4">
+<label for="email" class="form-label">Email</label>
+<input type="email" class="form-control" id="email" required>
+</div>
+<div class="mb-4">
+<label for="subject" class="form-label" data-i18n="subject">Subjek</label>
+<input type="text" class="form-control" id="subject" required>
+</div>
+<div class="mb-4">
+<label for="message" class="form-label" data-i18n="message">Pesan</label>
+<textarea class="form-control" id="message" rows="5" required></textarea>
+</div>
+<div class="text-center">
+<button type="submit" class="btn btn-primary btn-lg px-5" data-i18n="sendMessage">
+<span id="submitText">Kirim Pesan</span>
+<span id="submitSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-5 text-center">
+    <div class="container">
+        <div class="mb-4">
+            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/AdityaRizky12" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/adit.dev12?igsh=dXRuazhvMHVmZDl0" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p class="mb-2">
+            <a href="mailto:aditya@example.com" class="text-white me-3">adityarizkyramadhan@gamil.com</a>
+            <a href="tel:+6281234567890" class="text-white">+62 856 9219 5469</a>
+        </p>
+        <p class="mb-0">&copy; <span id="currentYear"></span> Aditya Rizky Ramadhan. <span data-i18n="rights">All rights reserved.</span></p>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<a href="#" class="btn btn-primary btn-lg back-to-top" id="backToTop" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS (Animate On Scroll) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- EmailJS for contact form -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        disable: function() {
+            return window.innerWidth < 768; // Disable animations on mobile
+        }
+    });
+
+    // Initialize EmailJS (replace with your own User ID)
+    emailjs.init('YOUR_EMAILJS_USER_ID');
+
+    // Enhanced translations with additional fields
+    const translations = {
+        id: {
+            about: "Tentang Saya",
+            skills: "Skill",
+            education: "Pendidikan",
+            projects: "Projek",
+            contact: "Hubungi Saya",
+            jobTitle: "Fullstack Developer",
+            contactMe: "Hubungi Saya",
+            viewProjects: "Lihat Projek",
+            viewAllProjects: "Lihat Semua Projek",
+            viewCode: "Lihat Kode",
+            about1: "Halo! Saya Aditya Rizky Ramadhan, seorang Fullstack Developer dengan passion dalam membangun aplikasi web yang indah dan fungsional.",
+            about2: "Saya memiliki pengalaman dalam mengembangkan aplikasi web menggunakan berbagai teknologi modern seperti JavaScript, PHP, dan framework populer seperti React, Vue, dan Laravel.",
+            about3: "Selain coding, saya menikmati mempelajari teknologi baru, berkolaborasi dalam tim, dan memecahkan masalah kompleks dengan solusi yang elegan.",
+            frontend: "Frontend",
+            frontendDesc: "HTML, CSS, JavaScript, React, Vue",
+            backend: "Backend",
+            backendDesc: "PHP, Laravel, Node.js, MySQL",
+            responsive: "Responsive",
+            responsiveDesc: "Desain yang bekerja di semua perangkat",
+            fast: "Cepat",
+            fastDesc: "Aplikasi cepat dan optimasi SEO",
+            skill1: "Membangun aplikasi web interaktif dengan JavaScript modern (ES6+).",
+            skill2: "Pengembangan backend dengan PHP untuk aplikasi web dinamis.",
+            skill3: "Membangun antarmuka pengguna yang efisien dengan React.js.",
+            skill4: "Pengembangan aplikasi progresif dengan Vue.js.",
+            skill5: "Membangun aplikasi web yang skalabel dengan framework Laravel.",
+            database: "Database",
+            skill6: "Pengalaman dengan MySQL, PostgreSQL, dan Firebase.",
+            automotive: "Jurusan Otomotif",
+            automotiveTech: "Teknologi Otomotif",
+            engine: "Mesin Kendaraan",
+            maintenance: "Perawatan",
+            fullstack: "Fullstack Developer",
+            education1: "2022 - 2025",
+            educationDesc1: "Saya menempuh pendidikan kejuruan di bidang otomotif dengan fokus pada teknologi kendaraan bermotor.",
+            education2: "2024 - 2025",
+            educationDesc2: "Mengikuti program intensif Fullstack Developer yang mencakup frontend (HTML, CSS, JavaScript, React) dan backend (Node.js, Express, MongoDB).",
+            project1: "Aplikasi pencarian film berbasis web yang menggunakan API publik untuk menampilkan informasi film terbaru dan populer.",
+            project2: "Aplikasi katalog Pokemon yang menampilkan berbagai karakter Pokemon dengan detail kemampuan dan statistik.",
+            technologies: "Teknologi:",
+            viewProject: "Lihat Projek",
+            name: "Nama",
+            subject: "Subjek",
+            message: "Pesan",
+            sendMessage: "Kirim Pesan",
+            sending: "Mengirim...",
+            successMessage: "Pesan terkirim! Saya akan segera menghubungi Anda.",
+            errorMessage: "Terjadi kesalahan. Silakan coba lagi nanti.",
+            rights: "Hak cipta dilindungi."
+        },
+        en: {
+            about: "About Me",
+            skills: "Skills",
+            education: "Education",
+            projects: "Projects",
+            contact: "Contact Me",
+            jobTitle: "Fullstack Developer",
+            contactMe: "Contact Me",
+            viewProjects: "View Projects",
+            viewAllProjects: "View All Projects",
+            viewCode: "View Code",
+            about1: "Hello! I'm Aditya Rizky Ramadhan, a Fullstack Developer with a passion for building beautiful and functional web applications.",
+            about2: "I have experience in developing web applications using various modern technologies like JavaScript, PHP, and popular frameworks such as React, Vue, and Laravel.",
+            about3: "Besides coding, I enjoy learning new technologies, collaborating in teams, and solving complex problems with elegant solutions.",
+            frontend: "Frontend",
+            frontendDesc: "HTML, CSS, JavaScript, React, Vue",
+            backend: "Backend",
+            backendDesc: "PHP, Laravel, Node.js, MySQL",
+            responsive: "Responsive",
+            responsiveDesc: "Designs that work on all devices",
+            fast: "Fast",
+            fastDesc: "Fast applications and SEO optimization",
+            skill1: "Building interactive web applications with modern JavaScript (ES6+).",
+            skill2: "Backend development with PHP for dynamic web applications.",
+            skill3: "Building efficient user interfaces with React.js.",
+            skill4: "Progressive application development with Vue.js.",
+            skill5: "Building scalable web applications with Laravel framework.",
+            database: "Database",
+            skill6: "Experience with MySQL, PostgreSQL, and Firebase.",
+            automotive: "Automotive Major",
+            automotiveTech: "Automotive Technology",
+            engine: "Vehicle Engine",
+            maintenance: "Maintenance",
+            fullstack: "Fullstack Developer",
+            education1: "2022 - 2025",
+            educationDesc1: "I attended vocational education in automotive with a focus on motor vehicle technology.",
+            education2: "2024 - 2025",
+            educationDesc2: "Attended an intensive Fullstack Developer program covering frontend (HTML, CSS, JavaScript, React) and backend (Node.js, Express, MongoDB).",
+            project1: "Web-based movie search application that uses public API to display information about the latest and popular movies.",
+            project2: "Pokemon catalog application that displays various Pokemon characters with ability details and statistics.",
+            technologies: "Technologies:",
+            viewProject: "View Project",
+            name: "Name",
+            subject: "Subject",
+            message: "Message",
+            sendMessage: "Send Message",
+            sending: "Sending...",
+            successMessage: "Message sent! I'll contact you soon.",
+            errorMessage: "An error occurred. Please try again later.",
+            rights: "All rights reserved."
+        }
+    };
+
+    // Function to change language
+    function changeLanguage(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translations[lang][key];
+                } else {
+                    element.textContent = translations[lang][key];
+                }
+            }
+        });
+        localStorage.setItem('language', lang);
+        
+        // Update active language indicator
+        document.querySelectorAll('.language-switcher').forEach(switcher => {
+            switcher.classList.remove('active');
+        });
+        document.getElementById(`${lang}Language`).classList.add('active');
+    }
+
+    // Function to toggle dark/light mode
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        const icon = document.querySelector('#themeToggle i');
+        if (isDarkMode) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    }
+
+    // Function to handle contact form submission
+    function handleContactFormSubmit(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.querySelector('#contactForm button[type="submit"]');
+        const submitText = document.getElementById('submitText');
+        const submitSpinner = document.getElementById('submitSpinner');
+        
+        // Show loading state
+        submitText.textContent = translations[localStorage.getItem('language') || 'id']['sending'];
+        submitSpinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+        
+        // Prepare email parameters
+        const templateParams = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
+            .then(() => {
+                // Show success message
+                alert(translations[localStorage.getItem('language') || 'id']['successMessage']);
+                document.getElementById('contactForm').reset();
+            })
+            .catch(() => {
+                // Show error message
+                alert(translations[localStorage.getItem('language') || 'id']['errorMessage']);
+            })
+            .finally(() => {
+                // Reset button state
+                submitText.textContent = translations[localStorage.getItem('language') || 'id']['sendMessage'];
+                submitSpinner.classList.add('d-none');
+                submitBtn.disabled = false;
+            });
+    }
+
+    // Function to handle back to top button
+    function handleBackToTop() {
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Function to update active nav link based on scroll position
+    function updateActiveNavLink() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.pageYOffset >= sectionTop - 200) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Set default language or from localStorage
+        const savedLanguage = localStorage.getItem('language') || 'id';
+        changeLanguage(savedLanguage);
+        
+        // Set dark mode from localStorage
+        const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (savedDarkMode) {
+            document.body.classList.add('dark-mode');
+            document.querySelector('#themeToggle i').classList.remove('fa-moon');
+            document.querySelector('#themeToggle i').classList.add('fa-sun');
+        }
+        
+        // Event listeners for language switchers
+        document.getElementById('idLanguage').addEventListener('click', () => changeLanguage('id'));
+        document.getElementById('enLanguage').addEventListener('click', () => changeLanguage('en'));
+        
+        // Event listener for theme toggle
+        document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Update active nav link
+            updateActiveNavLink();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without page reload
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', handleContactFormSubmit);
+        
+        // Back to top button
+        handleBackToTop();
+        
+        // Initialize active nav link
+        updateActiveNavLink();
+        
+        // Add active class to current language
+        document.getElementById(`${savedLanguage}Language`).classList.add('active');
+    });
+</script>
+</body>
