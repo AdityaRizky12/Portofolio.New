@@ -2,73 +2,131 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portofolio Aditya Rizky Ramadhan | Fullstack Developer</title>
     <meta name="description" content="Portfolio profesional Aditya Rizky Ramadhan, Fullstack Developer dengan keahlian dalam JavaScript, PHP, React, Vue, dan Laravel.">
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+    
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --primary-hover: #0b5ed7;
+            --primary-color: #4361ee;
+            --primary-hover: #3a56d4;
             --secondary-color: #6c757d;
-            --dark-color: #212529;
-            --light-color: #f8f9fa;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
             --bg-color: #ffffff;
-            --text-color: #212529;
+            --text-color: #0f172a;
             --card-bg: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --border-radius: 16px;
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            --footer-bg: #0f172a;
         }
         
         .dark-mode {
-            --primary-color: #4dabf7;
-            --primary-hover: #339af0;
-            --secondary-color: #868e96;
-            --dark-color: #121212;
-            --light-color: #1e1e1e;
-            --bg-color: #121212;
-            --text-color: #f8f9fa;
-            --card-bg: #1e1e1e;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --primary-color: #60a5fa;
+            --primary-hover: #93c5fd;
+            --secondary-color: #9ca3af;
+            --dark-color: #020617;
+            --light-color: #1e293b;
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            --footer-bg: #020617;
+        }
+        
+        html {
+            font-size: 100%;
+            overflow-x: hidden;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             scroll-behavior: smooth;
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: var(--transition);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
+            width: 100%;
         }
         
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.3;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
         }
         
+        p, .card-text {
+            color: var(--text-color);
+        }
+
+        /* Perbaikan untuk teks pendidikan di dark mode */
+        .dark-mode .text-muted,
+        .dark-mode .card-subtitle {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .card-subtitle {
+            color: var(--secondary-color);
+        }
+        
+        /* Glassmorphism effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+        }
+        
+        /* Navbar */
         .navbar {
             transition: var(--transition);
-            background-color: var(--dark-color) !important;
+            background: rgba(15, 23, 42, 0.8) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             padding: 1rem 0;
         }
         
         .navbar.scrolled {
             box-shadow: var(--shadow);
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
         }
         
         .nav-link {
             font-weight: 500;
             padding: 0.5rem 1rem;
             position: relative;
+            transition: var(--transition);
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-link:hover {
+            color: white;
         }
         
         .nav-link::after {
@@ -79,59 +137,149 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            background-color: var(--primary-color);
+            background-color: white;
             transition: var(--transition);
+            border-radius: 3px;
         }
         
         .nav-link:hover::after,
         .nav-link.active::after {
-            width: 70%;
+            width: 80%;
         }
         
+        /* Hero Section */
         #hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
-            color: white;
-            padding: 120px 0 100px;
+            min-height: 100vh;
+            height: auto;
+            padding: 0;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding-top: 70px;
         }
         
-        #hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-            background-size: cover;
-            opacity: 0.1;
+            background: linear-gradient(135deg, #3a0ca3, #4361ee, #4cc9f0);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -2;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        
+        .profile-img-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            transition: var(--transition);
+            transform-style: preserve-3d;
         }
         
         .profile-img {
-            width: 220px;
-            height: 220px;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
         }
         
-        .profile-img:hover {
-            transform: scale(1.05);
-            border-color: rgba(255, 255, 255, 0.4);
+        .profile-img-container:hover {
+            transform: scale(1.05) rotateY(10deg);
+            border-color: rgba(255, 255, 255, 0.5);
         }
         
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        
+        /* About Section */
+       #about {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+/* Parallax elements */
+.parallax-layer {
+  position: absolute;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 0; /* memastikan tetap di belakang konten */
+}
+
+.parallax-circle {
+  border-radius: 50%;
+  background: rgba(67, 97, 238, 0.1);
+
+  /* Hapus efek blur yang menyebabkan teks jadi buram */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.row, .col-lg-6 {
+  position: relative;
+  z-index: 1; /* pastikan konten di atas layer parallax */
+}
+
+        
+        /* Skill Cards */
         .skill-card {
             transition: var(--transition);
             background-color: var(--card-bg);
             color: var(--text-color);
             border: none;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             height: 100%;
             box-shadow: var(--shadow);
             overflow: hidden;
             position: relative;
+            transform-style: preserve-3d;
+            margin-bottom: 1.5rem;
         }
         
         .skill-card::before {
@@ -140,127 +288,47 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
         }
         
         .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
+        /* Project Cards */
         .project-card {
             transition: var(--transition);
             height: 100%;
             background-color: var(--card-bg);
             color: var(--text-color);
             border: none;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+            margin-bottom: 1.5rem;
         }
         
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .project-card img {
             transition: var(--transition);
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             width: 100%;
+            max-width: 100%;
         }
         
         .project-card:hover img {
             transform: scale(1.05);
         }
         
-        .project-tag {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        #contact {
-            background-color: var(--light-color);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        #contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(0,0,0,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-            background-size: cover;
-            opacity: 0.1;
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 0;
-        }
-        
-        .social-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin: 0 0.5rem;
-            transition: var(--transition);
-        }
-        
-        .social-icon:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .form-control, .form-control:focus {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.75rem 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 0.75rem 2rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            border-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline-light:hover {
-            color: var(--primary-color);
-        }
-        
+        /* Timeline */
         .timeline {
             position: relative;
             padding-left: 30px;
@@ -272,83 +340,253 @@
             top: 0;
             bottom: 0;
             left: 10px;
-            width: 2px;
-            background-color: var(--primary-color);
+            width: 3px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--primary-hover));
+            border-radius: 3px;
         }
         
         .timeline-item {
             position: relative;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .timeline-item::before {
             content: '';
             position: absolute;
             top: 10px;
-            left: -28px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            border: 3px solid var(--bg-color);
-        }
-        
-        .language-switcher, .theme-switcher {
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 5px;
-            margin-left: 0.5rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .language-switcher:hover, .theme-switcher:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .language-flag {
+            left: -25px;
             width: 20px;
-            height: 15px;
-            margin-right: 5px;
-            border-radius: 2px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            border: 5px solid var(--bg-color);
+            box-shadow: 0 0 0 2px var(--primary-color);
         }
         
+        /* Contact Section */
+        .contact-info-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info-card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Map Container */
+        .map-container {
+            height: 250px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+ footer.footer {
+  background-color: var(--footer-bg, #1f2937);
+  color: white;
+  padding: 5rem 1rem 8rem; /* ruang ekstra di bawah */
+  position: relative;
+  z-index: 10;
+  overflow: visible; /* biar tidak terpotong */
+}
+
+.footer-wave {
+  z-index: 1;
+}
+
+footer .container {
+  position: relative;
+  z-index: 2;
+}
+
+footer .copyright-text {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999 !important;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.social-icons .btn-social {
+  font-size: 1.25rem;
+  border-radius: 50%;
+  padding: 0.6rem 0.75rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (max-width: 576px) {
+  .contact-info {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-icons .btn-social {
+    margin: 0.3rem;
+  }
+}
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+            z-index: -1;
+            transition: var(--transition);
+            opacity: 0;
+        }
+        
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Section Titles */
         .section-title {
             position: relative;
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
         
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+            border-radius: 2px;
         }
         
-        .progress {
-            height: 8px;
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
+        /* Skills Chart */
+        .skills-chart {
+            width: 100%;
+            height: 300px;
+            margin: 0 auto;
         }
         
-        .progress-bar {
-            background-color: var(--primary-color);
+        /* Language switcher */
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
         }
         
-        .floating {
-            animation: floating 3s ease-in-out infinite;
+        .language-switcher.active {
+            background-color: rgba(255, 255, 255, 0.2);
         }
         
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        .language-flag {
+            width: 20px;
+            height: auto;
+            border-radius: 3px;
+        }
+        
+        /* Theme switcher */
+        .theme-switcher {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
         }
         
         /* Back to top button */
@@ -356,56 +594,165 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 99;
-            display: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
         }
         
         .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ==================== */
+        /* PERBAIKAN RESPONSIF  */
+        /* ==================== */
+        
+        /* 1. Penyesuaian Grid System */
+        .row {
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+        
+        .col-lg-6, .col-md-6, .col-sm-6, .col-12 {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        
+        /* 2. Perbaikan Ukuran Font Responsif */
+        h1 {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+        }
+        
+        .lead {
+            font-size: 1.1rem;
+        }
+        
+        /* 3. Optimasi Spacing dan Padding */
+        section {
+            padding: 2.5rem 0;
+        }
+        
+        .hero-content {
+            padding: 1.5rem;
+        }
+        
+        .profile-img-container {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* 4. Penyesuaian Komponen Khusus Mobile */
+        .navbar-collapse {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+        
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        .nav-link::after {
+            display: none;
+        }
+        
+        .hero-buttons .btn {
             display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-buttons .btn:last-child {
+            margin-bottom: 0;
+        }
+        
+        .skill-card, .project-card {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info-card {
+            padding: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* 5. Perbaikan Timeline untuk Mobile */
+        .timeline {
+            padding-left: 20px;
+        }
+        
+        .timeline::before {
+            left: 8px;
+        }
+        
+        .timeline-item::before {
+            left: -20px;
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* 6. Penyesuaian Form Kontak */
+        #contactForm {
+            padding: 1.5rem;
+        }
+        
+        /* 7. Optimasi Footer untuk Mobile */
+        footer {
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-wave {
+            top: -30px;
+            height: 30px;
         }
         
         /* Responsive adjustments */
-        @media (max-width: 1199.98px) {
-            .profile-img {
-                width: 200px;
-                height: 200px;
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            .profile-img-container {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                justify-content: center;
+            }
+            
+            .hero-buttons .btn {
+                width: auto;
+                margin: 0 0.5rem;
             }
         }
-        
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-                background-color: var(--dark-color);
-                padding: 1rem;
-                border-radius: 0.25rem;
-                margin-top: 0.5rem;
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
             }
             
-            .language-switcher, .theme-switcher {
-                margin-left: 0;
-                margin-right: 0.5rem;
-            }
-            
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            
-            #hero {
-                padding: 100px 0 80px;
-            }
-            
-            .section-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-        
-        @media (max-width: 767.98px) {
             h1 {
                 font-size: 2.5rem;
             }
@@ -414,107 +761,461 @@
                 font-size: 2rem;
             }
             
-            .profile-img {
-                width: 160px;
-                height: 160px;
+            .lead {
+                font-size: 1.25rem;
             }
             
-            .project-card img {
-                height: 150px;
+            .profile-img-container {
+                width: 180px;
+                height: 180px;
             }
             
-            .timeline {
-                padding-left: 20px;
+            section {
+                padding: 3.5rem 0;
             }
             
-            .timeline-item::before {
-                left: -18px;
-                width: 12px;
-                height: 12px;
+            .navbar-collapse {
+                background-color: transparent;
+                padding: 0;
+                margin-top: 0;
+                border-radius: 0;
             }
             
-            .btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+            .nav-item {
+                margin-bottom: 0;
             }
             
-            .btn-lg {
-                padding: 0.6rem 1.2rem;
+            .nav-link::after {
+                display: block;
             }
         }
-        
-        @media (max-width: 575.98px) {
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .navbar {
+                padding: 1.5rem 0;
+            }
+            
+            .profile-img-container {
+                width: 200px;
+                height: 200px;
+            }
+            
             h1 {
-                font-size: 2rem;
+                font-size: 3rem;
             }
             
             h2 {
+                font-size: 2.5rem;
+            }
+            
+            .lead {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 4.5rem 0;
+            }
+            
+            .skill-card {
+                padding: 1.75rem;
+            }
+            
+            .contact-info-card {
+                padding: 1.75rem;
+            }
+            
+            .contact-icon {
+                width: 70px;
+                height: 70px;
                 font-size: 1.75rem;
             }
             
-            #hero {
-                padding: 80px 0 60px;
+            .map-container {
+                height: 300px;
             }
             
-            .profile-img {
-                width: 140px;
-                height: 140px;
+            .timeline::before {
+                left: 15px;
             }
             
-            .section-title::after {
-                width: 40px;
-                height: 2px;
-                bottom: -8px;
-            }
-            
-            .card-body {
-                padding: 1.25rem;
-            }
-            
-            .form-control, .form-control:focus {
-                padding: 0.5rem 0.75rem;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                line-height: 30px;
-                font-size: 0.9rem;
-            }
-            
-            .d-flex.mt-4 {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .d-flex.mt-4 .btn {
-                width: 100%;
+            .timeline-item::before {
+                left: -30px;
             }
         }
-        
-        @media (max-width: 400px) {
-            .navbar-brand {
-                font-size: 1rem;
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
             }
             
-            .profile-img {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            section {
+                padding: 5.5rem 0;
+            }
+            
+            .skill-card {
+                padding: 2rem;
+            }
+            
+            .contact-info-card {
+                padding: 2rem;
+            }
+            
+            .contact-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Disable parallax on mobile */
+        @media (max-width: 991.98px) {
+            .parallax-layer {
+                display: none;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 575.98px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .profile-img-container {
                 width: 120px;
                 height: 120px;
             }
             
-            .project-tag {
-                font-size: 0.7rem;
-                padding: 0.2rem 0.6rem;
-                margin-right: 0.3rem;
-                margin-bottom: 0.3rem;
+            .btn, .btn-lg {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
             }
             
-            .social-icon {
-                width: 35px;
-                height: 35px;
-                margin: 0 0.3rem;
+            .section-title::after {
+                width: 40px;
+                bottom: -10px;
+            }
+            
+            .skills-chart {
+                height: 250px;
             }
         }
+      .super-glow-text {
+    position: relative;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    user-select: none;
+    cursor: default;
+    background: linear-gradient(270deg, #ff4ca1, #6a5aff, #20e5b0, #ff4ca1);
+    background-size: 800% 800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: superGradientShift 12s ease infinite;
+
+    text-shadow:
+      0 0 6px #ff4ca1,
+      0 0 12px #6a5aff,
+      0 0 20px #20e5b0;
+
+    animation-timing-function: ease-in-out;
+    animation-name: glowPulseSoft, superGradientShift;
+    animation-duration: 6s, 12s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate, normal;
+  }
+
+  .super-glow-text::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -40%;
+    width: 180%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.4) 50%,
+      rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shineMove 4s linear infinite;
+    pointer-events: none;
+    user-select: none;
+    border-radius: 5px;
+  }
+
+  @keyframes superGradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glowPulseSoft {
+    0%, 100% {
+      text-shadow:
+        0 0 6px #ff4ca1,
+        0 0 12px #6a5aff,
+        0 0 20px #20e5b0;
+    }
+    50% {
+      text-shadow:
+        0 0 4px #ff4ca1,
+        0 0 8px #6a5aff,
+        0 0 14px #20e5b0;
+    }
+  }
+
+  @keyframes shineMove {
+    0% {
+      left: -40%;
+    }
+    100% {
+      left: 140%;
+    }
+  }
+
+
+ /* CSS untuk teks kecil "Fullstack Developer" */
+ .lead {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.color-cycle {
+  color: #ff0000; /* warna dasar merah */
+  animation: hueShift 8s linear infinite;
+  -webkit-animation: hueShift 8s linear infinite;
+}
+
+@keyframes hueShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Project image container for better aspect ratio */
+.project-img-container {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Improved responsive project cards */
+@media (max-width: 767.98px) {
+  .project-card {
+    margin-bottom: 2rem;
+  }
+  
+  .project-img-container {
+    height: 180px;
+  }
+}
+
+/* Better spacing for project cards on mobile */
+@media (max-width: 575.98px) {
+  .project-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-img-container {
+    height: 160px;
+  }
+}
+
+/* Improved button spacing on mobile */
+.hero-buttons .btn {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 576px) {
+  .hero-buttons .btn {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  
+  .hero-buttons .btn:last-child {
+    margin-right: 0;
+  }
+}
+
+/* Better timeline spacing */
+.timeline-item {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .timeline-item {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Improved contact form layout */
+@media (max-width: 767.98px) {
+  #contactForm {
+    margin-top: 2rem;
+  }
+}
+
+/* Better footer spacing */
+.footer {
+  padding: 4rem 0;
+}
+
+@media (max-width: 767.98px) {
+  .footer {
+    padding: 3rem 0;
+  }
+}
+
+/* Improved social icons spacing */
+.social-icons {
+  margin-bottom: 1.5rem;
+}
+
+.social-icons .btn-social {
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .social-icons .btn-social {
+    margin: 0.25rem;
+  }
+}
+
+/* Better back to top button positioning */
+.back-to-top {
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 575.98px) {
+  .back-to-top {
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Perbaikan khusus untuk bagian kontak */
+.contact-info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-info-card h4 {
+    margin-bottom: 1rem;
+}
+
+.contact-info-card p {
+    word-break: break-word;
+}
+
+@media (max-width: 767.98px) {
+    .contact-info-card {
+        padding: 1.25rem;
+    }
+    
+    .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-info-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .contact-info-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Perbaikan form kontak responsif */
+#contactForm {
+    padding: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+    #contactForm {
+        padding: 1.25rem;
+    }
+    
+    #contactForm .form-label {
+        font-size: 0.95rem;
+    }
+    
+    #contactForm .form-control {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    #contactForm button {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Perbaikan email di footer */
+.footer .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer .contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.footer .contact-info a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+@media (max-width: 575.98px) {
+    .footer .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
     </style>
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbar">
@@ -522,7 +1223,7 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-                <span class="bg-primary rounded-circle p-2 me-2 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                <span class="rounded-circle p-2 me-2 d-flex align-items-center justify-content-center glass-card" style="width: 40px; height: 40px;">
                     <span class="fw-bold">ARR</span>
                 </span>
                 Aditya Rizky Ramadhan
@@ -549,14 +1250,11 @@
                     </li>
                 </ul>
                 <div class="d-flex align-items-center ms-lg-3 mt-3 mt-lg-0">
-                    <span class="language-switcher" id="idLanguage">
-                        <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="language-flag"> ID
+                    <span class="language-switcher glass-card" id="idLanguage">
+                        <img src="https://flagcdn.com/w20/id.png" alt="Indonesia" class="language-flag me-1"> ID
                     </span>
-                    <span class="language-switcher" id="enLanguage">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag"> EN
-                    </span>
-                    <span class="theme-switcher ms-2" id="themeToggle" title="Toggle Dark Mode">
-                        <i class="fas fa-moon"></i>
+                    <span class="language-switcher glass-card ms-2" id="enLanguage">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag me-1"> EN
                     </span>
                 </div>
             </div>
@@ -564,324 +1262,518 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="text-center">
-        <div class="container position-relative">
-            <div class="floating">
-                <img src="image/Profil.jpg" 
-                     alt="Aditya Rizky Ramadhan" 
-                     class="profile-img rounded-circle mb-4 animate__animated animate__fadeIn">
-            </div>
-            <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeIn animate__delay-1s">Aditya Rizky Ramadhan</h1>
-            <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s" data-i18n="jobTitle">Fullstack Developer</p>
-            <div class="animate__animated animate__fadeIn animate__delay-2s">
-                <a href="#contact" class="btn btn-light btn-lg px-4 me-2 me-sm-3" data-i18n="contactMe">Hubungi Saya</a>
-                <a href="#projects" class="btn btn-outline-light btn-lg px-4" data-i18n="viewProjects">Lihat Projek</a>
-            </div>
+    <section id="hero">
+        <!-- Animated gradient background -->
+        <div class="hero-bg"></div>
+       <div class="hero-overlay"></div>
+           <!-- Floating elements -->
+    <div class="floating-element" style="width: 100px; height: 100px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-element" style="width: 150px; height: 150px; top: 60%; left: 80%; animation-delay: 2s;"></div>
+    <div class="floating-element" style="width: 80px; height: 80px; top: 80%; left: 20%; animation-delay: 4s;"></div>
+    <div class="floating-element" style="width: 120px; height: 120px; top: 30%; left: 70%; animation-delay: 1s;"></div>
+    
+    <!-- Parallax elements -->
+    <div class="parallax-layer" id="parallax1" style="width: 300px; height: 300px; top: 10%; left: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax2" style="width: 200px; height: 200px; top: 70%; left: 80%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
+    <div class="hero-content container">
+        <div class="profile-img-container">
+            <img src="image/Profil.jpg" 
+                 alt="Aditya Rizky Ramadhan" 
+                 class="profile-img">
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
-                    <h2 class="fw-bold mb-4 section-title" data-i18n="about">Tentang Saya</h2>
-                    <p class="lead" data-i18n="about1">Halo! Saya Aditya Rizky Ramadhan, seorang Fullstack Developer dengan passion dalam membangun aplikasi web yang indah dan fungsional.</p>
-                    <p data-i18n="about2">Saya memiliki pengalaman dalam mengembangkan aplikasi web menggunakan berbagai teknologi modern seperti JavaScript, PHP, dan framework populer seperti React, Vue, dan Laravel.</p>
-                    <p data-i18n="about3">Selain coding, saya menikmati mempelajari teknologi baru, berkolaborasi dalam tim, dan memecahkan masalah kompleks dengan solusi yang elegan.</p>
-                    <div class="d-flex mt-4">
-                        <a href="#contact" class="btn btn-primary me-3" data-i18n="contactMe">Hubungi Saya</a>
-                        <a href="#projects" class="btn btn-outline-primary" data-i18n="viewProjects">Projek Saya</a>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="card skill-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title" data-i18n="frontend">Frontend</h5>
-                                    <p class="card-text" data-i18n="frontendDesc">HTML, CSS, JavaScript, React, Vue</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card skill-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <i class="fas fa-server fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title" data-i18n="backend">Backend</h5>
-                                    <p class="card-text" data-i18n="backendDesc">PHP, Laravel, Node.js, MySQL</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card skill-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title" data-i18n="responsive">Responsive</h5>
-                                    <p class="card-text" data-i18n="responsiveDesc">Desain yang bekerja di semua perangkat</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card skill-card h-100">
-                                <div class="card-body text-center p-4">
-                                    <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
-                                    <h5 class="card-title" data-i18n="fast">Cepat</h5>
-                                    <p class="card-text" data-i18n="fastDesc">Aplikasi cepat dan optimasi SEO</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h1 class="display-4 fw-bold mb-3 super-glow-text" data-text="Aditya Rizky Ramadhan">Aditya Rizky Ramadhan</h1>
+        <p class="lead color-cycle mb-4" data-i18n="jobTitle">Fullstack Developer</p>
+        <p class="mb-4"><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="location">Jakarta, Indonesia</span></p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-light btn-lg px-4 me-2 me-sm-3 glass-card" data-i18n="contactMe">Hubungi Saya</a>
+            <a href="#projects" class="btn btn-outline-light btn-lg px-4 glass-card" data-i18n="viewProjects">Lihat Projek</a>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="skills">Skill</h2>
-            <div class="row g-4">
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fab fa-js fa-2x text-warning me-3"></i>
-                                <h5 class="card-title mb-0">JavaScript</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill1">Membangun aplikasi web interaktif dengan JavaScript modern (ES6+).</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fab fa-php fa-2x text-primary me-3"></i>
-                                <h5 class="card-title mb-0">PHP</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill2">Pengembangan backend dengan PHP untuk aplikasi web dinamis.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fab fa-react fa-2x text-info me-3"></i>
-                                <h5 class="card-title mb-0">React</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill3">Membangun antarmuka pengguna yang efisien dengan React.js.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fab fa-vuejs fa-2x text-success me-3"></i>
-                                <h5 class="card-title mb-0">Vue</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill4">Pengembangan aplikasi progresif dengan Vue.js.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fab fa-laravel fa-2x text-danger me-3"></i>
-                                <h5 class="card-title mb-0">Laravel</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill5">Membangun aplikasi web yang skalabel dengan framework Laravel.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 82%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card skill-card h-100">
-                        <div class="card-body p-4">
-                            <div class="d-flex align-items-center mb-3">
-                                <i class="fas fa-database fa-2x text-secondary me-3"></i>
-                                <h5 class="card-title mb-0" data-i18n="database">Database</h5>
-                            </div>
-                            <p class="card-text mb-3" data-i18n="skill6">Pengalaman dengan MySQL, PostgreSQL, dan Firebase.</p>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 78%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-5">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="education">Pendidikan</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="timeline">
-                        <div class="timeline-item" data-aos="fade-up">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title fw-bold mb-0">SMKN 36 Jakarta</h5>
-                                        <span class="badge bg-primary" data-i18n="education1">2022 - 2025</span>
-                                    </div>
-                                    <h6 class="card-subtitle mb-3 text-muted" data-i18n="automotive">Jurusan Otomotif</h6>
-                                    <p class="card-text" data-i18n="educationDesc1">Saya menempuh pendidikan kejuruan di bidang otomotif dengan fokus pada teknologi kendaraan bermotor.</p>
-                                    <div class="mt-3">
-                                        <span class="badge bg-light text-dark me-2" data-i18n="automotiveTech">Teknologi Otomotif</span>
-                                        <span class="badge bg-light text-dark me-2" data-i18n="engine">Mesin Kendaraan</span>
-                                        <span class="badge bg-light text-dark" data-i18n="maintenance">Perawatan</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title fw-bold mb-0">Bootcamp Eduwork</h5>
-                                        <span class="badge bg-primary" data-i18n="education2">2024 - 2025</span>
-                                    </div>
-                                    <h6 class="card-subtitle mb-3 text-muted" data-i18n="fullstack">Fullstack Developer</h6>
-                                    <p class="card-text" data-i18n="educationDesc2">Mengikuti program intensif Fullstack Developer yang mencakup frontend (HTML, CSS, JavaScript, React) dan backend (Node.js, Express, MongoDB).</p>
-                                    <div class="mt-3">
-                                        <span class="badge bg-light text-dark me-2">HTML/CSS</span>
-                                        <span class="badge bg-light text-dark me-2">JavaScript</span>
-                                        <span class="badge bg-light text-dark me-2">React</span>
-                                        <span class="badge bg-light text-dark me-2">Node.js</span>
-                                        <span class="badge bg-light text-dark">MongoDB</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="projects">Projek</h2>
-            <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up">
-                    <div class="card project-card h-100">
-                        <div class="overflow-hidden">
-                            <img src="image/ditmovie.jpg" 
-                                 class="card-img-top w-100" alt="Dittmovie">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Dittmovie</h5>
-                            <p class="card-text" data-i18n="project1">Aplikasi pencarian film berbasis web yang menggunakan API publik untuk menampilkan informasi film terbaru dan populer.</p>
-                            <div class="mb-3">
-                                <span class="project-tag">React</span>
-                                <span class="project-tag">TMDB API</span>
-                                <span class="project-tag">Tailwind</span>
-                            </div>
-                            <div class="d-flex">
-                                <a href="https://ditttmovie.netlify.app" class="btn btn-primary me-2" data-i18n="viewProject">Lihat Projek</a>
-                                <a href="https://github.com/AdityaRizky12/movie.git" class="btn btn-outline-secondary" data-i18n="viewCode">Lihat Kode</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card project-card h-100">
-                        <div class="overflow-hidden">
-                            <img src="image/project.jpg" 
-                                 class="card-img-top w-100" alt="Pokemon">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Pokemon</h5>
-                            <p class="card-text" data-i18n="project2">Aplikasi katalog Pokemon yang menampilkan berbagai karakter Pokemon dengan detail kemampuan dan statistik.</p>
-                            <div class="mb-3">
-                                <span class="project-tag">Javascript</span>
-                                <span class="project-tag">PokeAPI</span>
-                                <span class="project-tag">Tailwind CSS</span>
-                            </div>
-                            <div class="d-flex">
-                                <a href="https://adityarizky12.github.io/Pokemon/" class="btn btn-primary me-2" data-i18n="viewProject">Lihat Projek</a>
-                                <a href="https://github.com/AdityaRizky12/Pokemon.git" class="btn btn-outline-secondary" data-i18n="viewCode">Lihat Kode</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="#" class="btn btn-outline-primary" data-i18n="viewAllProjects">Lihat Semua Projek</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container position-relative">
-            <h2 class="text-center fw-bold mb-5 section-title" data-i18n="contact">Hubungi Saya</h2>
-<div class="row justify-content-center">
-<div class="col-lg-8">
-<form id="contactForm" data-aos="fade-up">
-<div class="mb-4">
-<label for="name" class="form-label" data-i18n="name">Nama</label>
-<input type="text" class="form-control" id="name" required>
-</div>
-<div class="mb-4">
-<label for="email" class="form-label">Email</label>
-<input type="email" class="form-control" id="email" required>
-</div>
-<div class="mb-4">
-<label for="subject" class="form-label" data-i18n="subject">Subjek</label>
-<input type="text" class="form-control" id="subject" required>
-</div>
-<div class="mb-4">
-<label for="message" class="form-label" data-i18n="message">Pesan</label>
-<textarea class="form-control" id="message" rows="5" required></textarea>
-</div>
-<div class="text-center">
-<button type="submit" class="btn btn-primary btn-lg px-5" data-i18n="sendMessage">
-<span id="submitText">Kirim Pesan</span>
-<span id="submitSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-</button>
-</div>
-</form>
-</div>
-</div>
-</div>
+    </div>
 </section>
-<!-- Footer -->
-<footer class="py-5 text-center">
+
+<!-- About Section -->
+<section id="about" class="py-5">
+    <!-- Parallax elements for about section -->
+    <div class="parallax-layer" id="parallax3" style="width: 150px; height: 150px; top: 20%; right: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax4" style="width: 250px; height: 250px; bottom: 10%; left: 10%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
     <div class="container">
-        <div class="mb-4">
-            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/AdityaRizky12" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/adit.dev12?igsh=dXRuazhvMHVmZDl0" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com/" target="_blank" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h2 class="fw-bold mb-4 section-title" data-i18n="about">Tentang Saya</h2>
+                <p class="lead" data-i18n="about1">Halo! Saya Aditya Rizky Ramadhan, seorang Fullstack Developer dengan passion dalam membangun aplikasi web yang indah dan fungsional.</p>
+                <p data-i18n="about2">Saya memiliki pengalaman dalam mengembangkan aplikasi web menggunakan berbagai teknologi modern seperti JavaScript, PHP, dan framework populer seperti React, Vue, dan Laravel.</p>
+                <p data-i18n="about3">Selain coding, saya menikmati mempelajari teknologi baru, berkolaborasi dalam tim, dan memecahkan masalah kompleks dengan solusi yang elegan.</p>
+                <div class="d-flex mt-4 flex-wrap">
+                    <a href="#contact" class="btn btn-primary me-3 mb-2" data-i18n="contactMe">Hubungi Saya</a>
+                    <a href="#projects" class="btn btn-outline-primary mb-2" data-i18n="viewProjects">Projek Saya</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title" data-i18n="frontend">Frontend</h5>
+                                <p class="card-text" data-i18n="frontendDesc">HTML, CSS, JavaScript, React, Vue</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-server fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title" data-i18n="backend">Backend</h5>
+                                <p class="card-text" data-i18n="backendDesc">PHP, Laravel, Node.js, MySQL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title" data-i18n="responsive">Responsive</h5>
+                                <p class="card-text" data-i18n="responsiveDesc">Desain yang bekerja di semua perangkat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title" data-i18n="fast">Cepat</h5>
+                                <p class="card-text" data-i18n="fastDesc">Aplikasi cepat dan optimasi SEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="mb-2">
-            <a href="mailto:aditya@example.com" class="text-white me-3">adityarizkyramadhan@gamil.com</a>
-            <a href="tel:+6281234567890" class="text-white">+62 856 9219 5469</a>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-5 bg-light">
+    <!-- Parallax elements for skills section -->
+    <div class="parallax-layer" id="parallax5" style="width: 180px; height: 180px; top: 30%; left: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax6" style="width: 120px; height: 120px; bottom: 20%; right: 10%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 section-title center" data-i18n="skills">Skill</h2>
+        
+        <!-- Skills Chart -->
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="skills-chart" id="skillsChart"></div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fab fa-js fa-2x text-warning me-3"></i>
+                                    <h5 class="card-title mb-0">JavaScript</h5>
+                                </div>
+                                <p class="card-text mb-3">Membangun aplikasi web interaktif dengan JavaScript modern (ES6+), termasuk penggunaan async/await, promises, dan functional programming.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">90% (Mahir)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fab fa-php fa-2x text-primary me-3"></i>
+                                    <h5 class="card-title mb-0">PHP</h5>
+                                </div>
+                                <p class="card-text mb-3">Pengembangan backend dengan PHP untuk aplikasi web dinamis, termasuk pemahaman OOP, MVC pattern, dan RESTful API development.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">85% (Sangat Baik)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fab fa-react fa-2x text-info me-3"></i>
+                                    <h5 class="card-title mb-0">React</h5>
+                                </div>
+                                <p class="card-text mb-3">Membangun antarmuka pengguna yang efisien dengan React.js termasuk hooks, context API, Redux, dan integrasi dengan berbagai library pendukung.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 88%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">88% (Mahir)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-database fa-2x text-success me-3"></i>
+                                    <h5 class="card-title mb-0">Database</h5>
+                                </div>
+                                <p class="card-text mb-3">Pengalaman dengan MySQL, PostgreSQL, dan MongoDB termasuk desain schema, query optimization, dan transaksi database.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">85% (Sangat Baik)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fab fa-laravel fa-2x text-danger me-3"></i>
+                                    <h5 class="card-title mb-0">Laravel</h5>
+                                </div>
+                                <p class="card-text mb-3">Membangun aplikasi web yang skalabel dengan framework Laravel termasuk Eloquent ORM, Blade templating, dan artisan commands.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">82% (Sangat Baik)</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="card skill-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fab fa-node-js fa-2x text-success me-3"></i>
+                                    <h5 class="card-title mb-0">Node.js</h5>
+                                </div>
+                                <p class="card-text mb-3">Membangun aplikasi backend dengan Node.js dan Express, termasuk pembuatan REST API, authentication, dan integrasi database.</p>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">80% (Baik)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-5">
+    <!-- Parallax elements for education section -->
+    <div class="parallax-layer" id="parallax7" style="width: 200px; height: 200px; top: 20%; right: 10%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax8" style="width: 100px; height: 100px; bottom: 30%; left: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 section-title center" data-i18n="education">Pendidikan</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="card-title fw-bold mb-0">SMKN 36 Jakarta</h5>
+                                    <span class="badge bg-primary" data-i18n="education1">2022 - 2025</span>
+                                </div>
+                                <h6 class="card-subtitle mb-3" style="color: var(--secondary-color);" data-i18n="automotive">Jurusan Otomotif</h6>
+                                <p class="card-text" data-i18n="educationDesc1">Saya menempuh pendidikan kejuruan di bidang otomotif dengan fokus pada teknologi kendaraan bermotor.</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-light text-dark me-2" data-i18n="automotiveTech">Teknologi Otomotif</span>
+                                    <span class="badge bg-light text-dark me-2" data-i18n="engine">Mesin Kendaraan</span>
+                                    <span class="badge bg-light text-dark" data-i18n="maintenance">Perawatan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h5 class="card-title fw-bold mb-0">Bootcamp Eduwork</h5>
+                                    <span class="badge bg-primary" data-i18n="education2">2024 - 2025</span>
+                                </div>
+                                <h6 class="card-subtitle mb-3" style="color: var(--secondary-color);" data-i18n="fullstack">Fullstack Developer</h6>
+                                <p class="card-text" data-i18n="educationDesc2">Mengikuti program intensif Fullstack Developer yang mencakup frontend (HTML, CSS, JavaScript, React) dan backend (Node.js, Express, MongoDB).</p>
+                                <div class="mt-3">
+                                    <span class="badge bg-light text-dark me-2">HTML/CSS</span>
+                                    <span class="badge bg-light text-dark me-2">JavaScript</span>
+                                    <span class="badge bg-light text-dark me-2">React</span>
+                                    <span class="badge bg-light text-dark me-2">Node.js</span>
+                                    <span class="badge bg-light text-dark">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-5 bg-light">
+    <!-- Parallax elements for projects section -->
+    <div class="parallax-layer" id="parallax9" style="width: 150px; height: 150px; top: 20%; left: 10%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax10" style="width: 250px; height: 250px; bottom: 10%; right: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 section-title center" data-i18n="projects">Projek</h2>
+        <div class="row g-4">
+            <!-- Project 1 - Dittmovie -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card project-card h-100">
+                    <div class="project-img-container">
+                        <img src="image/ditmovie.jpg" 
+                             class="card-img-top w-100" alt="Dittmovie">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Dittmovie</h5>
+                        <p class="card-text" data-i18n="project1">Aplikasi pencarian film berbasis web yang menggunakan API publik untuk menampilkan informasi film terbaru dan populer.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">React</span>
+                            <span class="badge bg-primary me-2">TMDB API</span>
+                            <span class="badge bg-primary me-2">Tailwind</span>
+                            <span class="badge bg-primary">Responsive</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                            <a href="https://ditttmovie.netlify.app" class="btn btn-primary me-2 mb-2" target="_blank" data-i18n="viewProject">Lihat Projek</a>
+                            <a href="https://github.com/AdityaRizky12/movie.git" class="btn btn-outline-secondary mb-2" target="_blank" data-i18n="viewCode">Lihat Kode</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 - Pokemon -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card project-card h-100">
+                    <div class="project-img-container">
+                        <img src="image/project.jpg" 
+                             class="card-img-top w-100" alt="Pokemon">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Pokemon</h5>
+                        <p class="card-text" data-i18n="project2">Aplikasi katalog Pokemon yang menampilkan berbagai karakter Pokemon dengan detail kemampuan dan statistik.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">Javascript</span>
+                            <span class="badge bg-primary me-2">PokeAPI</span>
+                            <span class="badge bg-primary me-2">Tailwind CSS</span>
+                            <span class="badge bg-primary">Responsive</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                            <a href="https://adityarizky12.github.io/Pokemon/" class="btn btn-primary me-2 mb-2" target="_blank" data-i18n="viewProject">Lihat Projek</a>
+                            <a href="https://github.com/AdityaRizky12/Pokemon.git" class="btn btn-outline-secondary mb-2" target="_blank" data-i18n="viewCode">Lihat Kode</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Project 3 - CRUD with Auth -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card project-card h-100">
+                    <div class="project-img-container">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             class="card-img-top w-100" alt="CRUD Application">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Aplikasi CRUD</h5>
+                        <p class="card-text">Aplikasi manajemen data dengan fitur Create, Read, Update, Delete dan sistem autentikasi (login/logout) yang aman.</p>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">Laravel</span>
+                            <span class="badge bg-primary me-2">MySQL</span>
+                            <span class="badge bg-primary me-2">Bootstrap</span>
+                            <span class="badge bg-primary">Authentication</span>
+                        </div>
+                        <div class="d-flex flex-wrap">
+                            <a href="https://github.com/AdityaRizky12/Tugas_laravel.git" class="btn btn-primary me-2 mb-2" target="_blank" data-i18n="viewProject">Lihat Projek</a>
+                            <a href="#" class="btn btn-outline-secondary mb-2" target="_blank" data-i18n="viewCode">Lihat Kode</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-outline-primary px-4" data-i18n="viewAllProjects">Lihat Semua Projek</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+    <!-- Parallax elements for contact section -->
+    <div class="parallax-layer" id="parallax11" style="width: 180px; height: 180px; top: 30%; left: 5%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    <div class="parallax-layer" id="parallax12" style="width: 120px; height: 120px; bottom: 20%; right: 10%;">
+        <div class="parallax-circle w-100 h-100"></div>
+    </div>
+    
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5 section-title center" data-i18n="contact">Hubungi Saya</h2>
+        <di class="row g-4">
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4 class="mb-3" data-i18n="email">Email</h4>
+                            <p class="mb-0">adityarizkyramadhan234@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h4 class="mb-3" data-i18n="phone">Telepon</h4>
+                            <p class="mb-0">+62 856 9219 5469</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4 class="mb-3" data-i18n="location">Lokasi</h4>
+                            <p class="mb-0">Jl. Kelimutu No.33, Jakarta Utara</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-info-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="mb-3" data-i18n="availability">Ketersediaan</h4>
+                            <p class="mb-0" data-i18n="availabilityText">Senin - Jumat: 06.00 - 22.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps Embed -->
+                <div class="map-container mt-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.037647748783!2d106.80043277499682!3d-6.120843593850117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1e1a1a1a1a1a%3A0x1a1a1a1a1a1a1a1a!2sJl.%20Kelimutu%20No.33%2C%20Jakarta%20Utara!5e0!3m2!1sen!2sid!4v1620000000000!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+         
+<div class="col-lg-6">
+  <form
+    id="contactForm"
+    class="glass-card p-4"
+    action="https://formsubmit.co/adityarizkyramadhan234@gmail.com"
+    method="POST"
+  >
+    <!-- Hidden FormSubmit Settings -->
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_next" value="http://127.0.0.1:5500/sukses.html" />
+
+
+    <div class="mb-4">
+      <label for="name" class="form-label">Nama</label>
+      <input type="text" class="form-control" id="name" name="name" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="phone" class="form-label">No. Telepon</label>
+      <input type="tel" class="form-control" id="phone" name="phone" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="subject" class="form-label">Subjek</label>
+      <input type="text" class="form-control" id="subject" name="subject" required />
+    </div>
+
+    <div class="mb-4">
+      <label for="message" class="form-label">Pesan</label>
+      <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <div class="text-center d-flex flex-column gap-3">
+      <!-- Tombol Kirim ke Email -->
+      <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
+        <span id="submitText">Kirim ke Email</span>
+        <span
+          id="submitSpinner"
+          class="spinner-border spinner-border-sm d-none"
+          role="status"
+          aria-hidden="true"
+        ></span>
+      </button>
+
+      <!-- Tombol Kirim ke WhatsApp -->
+      <a href="#" class="btn btn-success btn-lg px-5" id="waLink" target="_blank"
+        >Kirim via WhatsApp</a
+      >
+    </div>
+  </form>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5 text-center position-relative">
+    <div class="footer-wave"></div>
+    <div class="container">
+        <div class="social-icons mb-4">
+            <a href="https://www.linkedin.com/in/aditya-rizky-ramadhan-a748a32a0" target="_blank" class="btn btn-outline-light btn-social mx-2" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/AdityaRizky12" target="_blank" class="btn btn-outline-light btn-social mx-2" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/adit.dev12" target="_blank" class="btn btn-outline-light btn-social mx-2" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/" target="_blank" class="btn btn-outline-light btn-social mx-2" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <p class="contact-info mb-2">
+            <a href="mailto:adityarizkyramadhan234@gmail.com" class="text-white me-3">adityarizkyramadhan234@gmail.com</a>
+            <a href="tel:+6285692195469" class="text-white">+62 856 9219 5469</a>
         </p>
-        <p class="mb-0">&copy; <span id="currentYear"></span> Aditya Rizky Ramadhan. <span data-i18n="rights">All rights reserved.</span></p>
+
+        <p class="mb-0 copyright-text">
+            &copy; <span id="currentYear">2025</span> Aditya Rizky Ramadhan. <span data-i18n="rights">Hak cipta dilindungi.</span>
+        </p>
     </div>
 </footer>
 
@@ -893,24 +1785,148 @@
 <!-- Bootstrap 5 JS Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- AOS (Animate On Scroll) -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Chart.js for Skills Chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <!-- EmailJS for contact form -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+
+
 <script>
-    // Initialize AOS
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        disable: function() {
-            return window.innerWidth < 768; // Disable animations on mobile
+    // Initialize GSAP animations
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Enhanced parallax effect with GSAP
+    function setupParallax() {
+        // Only enable parallax on desktop
+        if (window.innerWidth > 991) {
+            // Create parallax elements for each section
+            const parallaxElements = [
+                { id: 'parallax1', speed: 0.2 },
+                { id: 'parallax2', speed: 0.15 },
+                { id: 'parallax3', speed: 0.1 },
+                { id: 'parallax4', speed: 0.25 },
+                { id: 'parallax5', speed: 0.18 },
+                { id: 'parallax6', speed: 0.12 },
+                { id: 'parallax7', speed: 0.22 },
+                { id: 'parallax8', speed: 0.08 },
+                { id: 'parallax9', speed: 0.15 },
+                { id: 'parallax10', speed: 0.3 },
+                { id: 'parallax11', speed: 0.18 },
+                { id: 'parallax12', speed: 0.12 }
+            ];
+            
+            parallaxElements.forEach(element => {
+                const el = document.getElementById(element.id);
+                if (el) {
+                    gsap.to(el, {
+                        y: () => ScrollTrigger.maxScroll(window) * element.speed,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: "body",
+                            start: "top top",
+                            end: "bottom bottom",
+                            scrub: 0.5,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                }
+            });
+            
+            // Add subtle parallax to hero content
+            gsap.to(".hero-content", {
+                y: () => ScrollTrigger.maxScroll(window) * 0.05,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 0.5
+                }
+            });
+            
+            // Add parallax to profile image
+            gsap.to(".profile-img-container", {
+                y: () => ScrollTrigger.maxScroll(window) * 0.1,
+                rotate: () => ScrollTrigger.maxScroll(window) * 0.01,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: 0.5
+                }
+            });
+            
+            // Section entrance animations with parallax effect
+            gsap.utils.toArray("section").forEach((section, i) => {
+                if (section.id !== "hero") {
+                    gsap.from(section, {
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 80%",
+                            toggleActions: "play none none none"
+                        },
+                        y: 50 * (i % 2 === 0 ? 1 : -1),
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power3.out"
+                    });
+                }
+            });
         }
-    });
-
-    // Initialize EmailJS (replace with your own User ID)
-    emailjs.init('YOUR_EMAILJS_USER_ID');
-
+    }
+    
+    // Create skills radar chart
+    function createSkillsChart() {
+        const ctx = document.createElement('canvas');
+        ctx.id = 'skillsCanvas';
+        document.getElementById('skillsChart').appendChild(ctx);
+        
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['JavaScript', 'PHP', 'React', 'Vue', 'Laravel', 'Node.js', 'HTML/CSS', 'Database'],
+                datasets: [{
+                    label: 'Skill Level',
+                    data: [90, 85, 88, 80, 82, 75, 95, 78],
+                    backgroundColor: 'rgba(67, 97, 238, 0.2)',
+                    borderColor: 'rgba(67, 97, 238, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(67, 97, 238, 1)',
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: 'rgba(200, 200, 200, 0.3)'
+                        },
+                        suggestedMin: 0,
+                                                suggestedMax: 100,
+                        ticks: {
+                            backdropColor: 'transparent',
+                            stepSize: 20
+                        },
+                        grid: {
+                            color: 'rgba(200, 200, 200, 0.3)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                elements: {
+                    line: {
+                        tension: 0.1
+                    }
+                }
+            }
+        });
+    }
+    
     // Enhanced translations with additional fields
     const translations = {
         id: {
@@ -939,7 +1955,7 @@
             skill2: "Pengembangan backend dengan PHP untuk aplikasi web dinamis.",
             skill3: "Membangun antarmuka pengguna yang efisien dengan React.js.",
             skill4: "Pengembangan aplikasi progresif dengan Vue.js.",
-            skill5: "Membangun aplikasi web yang skalabel dengan framework Laravel.",
+            skill5: "Membangun aplikasi webyang skalabel dengan framework Laravel.",
             database: "Database",
             skill6: "Pengalaman dengan MySQL, PostgreSQL, dan Firebase.",
             automotive: "Jurusan Otomotif",
@@ -953,6 +1969,7 @@
             educationDesc2: "Mengikuti program intensif Fullstack Developer yang mencakup frontend (HTML, CSS, JavaScript, React) dan backend (Node.js, Express, MongoDB).",
             project1: "Aplikasi pencarian film berbasis web yang menggunakan API publik untuk menampilkan informasi film terbaru dan populer.",
             project2: "Aplikasi katalog Pokemon yang menampilkan berbagai karakter Pokemon dengan detail kemampuan dan statistik.",
+            project3: "Aplikasi manajemen data dengan fitur CRUD dan sistem autentikasi yang aman.",
             technologies: "Teknologi:",
             viewProject: "Lihat Projek",
             name: "Nama",
@@ -962,7 +1979,12 @@
             sending: "Mengirim...",
             successMessage: "Pesan terkirim! Saya akan segera menghubungi Anda.",
             errorMessage: "Terjadi kesalahan. Silakan coba lagi nanti.",
-            rights: "Hak cipta dilindungi."
+            rights: "Hak cipta dilindungi.",
+            location: "Lokasi",
+            phone: "Telepon",
+            email: "Email",
+            availability: "Ketersediaan",
+            availabilityText: "Senin - Jumat: 06.00 - 22.00 WIB"
         },
         en: {
             about: "About Me",
@@ -1004,6 +2026,7 @@
             educationDesc2: "Attended an intensive Fullstack Developer program covering frontend (HTML, CSS, JavaScript, React) and backend (Node.js, Express, MongoDB).",
             project1: "Web-based movie search application that uses public API to display information about the latest and popular movies.",
             project2: "Pokemon catalog application that displays various Pokemon characters with ability details and statistics.",
+            project3: "Data management application with CRUD features and secure authentication system.",
             technologies: "Technologies:",
             viewProject: "View Project",
             name: "Name",
@@ -1013,7 +2036,12 @@
             sending: "Sending...",
             successMessage: "Message sent! I'll contact you soon.",
             errorMessage: "An error occurred. Please try again later.",
-            rights: "All rights reserved."
+            rights: "All rights reserved.",
+            location: "Location",
+            phone: "Phone",
+            email: "Email",
+            availability: "Availability",
+            availabilityText: "Monday - Friday: 0900 - 17:00 WIB"
         }
     };
 
@@ -1055,46 +2083,6 @@
     }
 
     // Function to handle contact form submission
-    function handleContactFormSubmit(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.querySelector('#contactForm button[type="submit"]');
-        const submitText = document.getElementById('submitText');
-        const submitSpinner = document.getElementById('submitSpinner');
-        
-        // Show loading state
-        submitText.textContent = translations[localStorage.getItem('language') || 'id']['sending'];
-        submitSpinner.classList.remove('d-none');
-        submitBtn.disabled = true;
-        
-        // Prepare email parameters
-        const templateParams = {
-            from_name: document.getElementById('name').value,
-            from_email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Send email using EmailJS
-        emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', templateParams)
-            .then(() => {
-                // Show success message
-                alert(translations[localStorage.getItem('language') || 'id']['successMessage']);
-                document.getElementById('contactForm').reset();
-            })
-            .catch(() => {
-                // Show error message
-                alert(translations[localStorage.getItem('language') || 'id']['errorMessage']);
-            })
-            .finally(() => {
-                // Reset button state
-                submitText.textContent = translations[localStorage.getItem('language') || 'id']['sendMessage'];
-                submitSpinner.classList.add('d-none');
-                submitBtn.disabled = false;
-            });
-    }
-
-    // Function to handle back to top button
     function handleBackToTop() {
         const backToTopButton = document.getElementById('backToTop');
         
@@ -1112,34 +2100,16 @@
         });
     }
 
-    // Function to update active nav link based on scroll position
-    function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        let currentSection = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop - 200) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Create skills chart
+        createSkillsChart();
+        
+        // Set up parallax effects
+        setupParallax();
         
         // Set default language or from localStorage
         const savedLanguage = localStorage.getItem('language') || 'id';
@@ -1149,16 +2119,16 @@
         const savedDarkMode = localStorage.getItem('darkMode') === 'true';
         if (savedDarkMode) {
             document.body.classList.add('dark-mode');
-            document.querySelector('#themeToggle i').classList.remove('fa-moon');
-            document.querySelector('#themeToggle i').classList.add('fa-sun');
+            const icon = document.querySelector('#themeToggle i');
+            if (icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
         }
         
         // Event listeners for language switchers
         document.getElementById('idLanguage').addEventListener('click', () => changeLanguage('id'));
         document.getElementById('enLanguage').addEventListener('click', () => changeLanguage('en'));
-        
-        // Event listener for theme toggle
-        document.getElementById('themeToggle').addEventListener('click', toggleDarkMode);
         
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -1168,9 +2138,6 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
-            
-            // Update active nav link
-            updateActiveNavLink();
         });
         
         // Smooth scrolling for anchor links
@@ -1199,11 +2166,118 @@
         // Back to top button
         handleBackToTop();
         
-        // Initialize active nav link
-        updateActiveNavLink();
+        // Initialize EmailJS (replace with your own User ID)
         
-        // Add active class to current language
-        document.getElementById(`${savedLanguage}Language`).classList.add('active');
+        // Add animation to project cards on scroll
+        gsap.utils.toArray(".project-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: "power3.out"
+            });
+        });
+        
+        // Add animation to skill cards on scroll
+        gsap.utils.toArray(".skill-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: "power3.out"
+            });
+        });
+        
+        // Add animation to timeline items
+        gsap.utils.toArray(".timeline-item").forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                x: i % 2 === 0 ? 50 : -50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: "power3.out"
+            });
+        });
     });
+
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        // Reinitialize parallax effects on resize
+        ScrollTrigger.refresh();
+    });
+
+   const form = document.getElementById("contactForm");
+const submitText = document.getElementById("submitText");
+const submitSpinner = document.getElementById("submitSpinner");
+const submitBtn = document.getElementById("submitBtn");
+const waLink = document.getElementById("waLink");
+
+form.addEventListener("submit", (e) => {
+  // Tampilkan spinner dan ubah teks tombol
+  submitText.textContent = "Mengirim...";
+  submitSpinner.classList.remove("d-none");
+  submitBtn.disabled = true;
+
+  // Tunggu sebentar lalu beri notifikasi (biar user tahu berhasil)
+  setTimeout(() => {
+    alert("✅ Pesan berhasil dikirim!");
+    
+    // Kembalikan tombol ke semula
+    submitText.textContent = "Kirim ke Email";
+    submitSpinner.classList.add("d-none");
+    submitBtn.disabled = false;
+
+    // Reset form (opsional)
+    form.reset();
+  }, 2000); // waktu tunggu 2 detik
+});
+
+
+// Saat klik tombol WA
+waLink.addEventListener("click", (e) => {
+  e.preventDefault(); // Stop link default supaya tidak reload atau ke href "#"
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !phone || !subject || !message) {
+    alert("Mohon lengkapi semua kolom sebelum mengirim lewat WhatsApp.");
+    return;
+  }
+
+  const fullMessage = `Halo, saya ingin menghubungi Anda.
+Nama: ${name}
+Email: ${email}
+No. Telepon: ${phone}
+Subjek: ${subject}
+Pesan: ${message}`;
+
+  const waURL = `https://wa.me/6285692195469?text=${encodeURIComponent(fullMessage)}`;
+
+  // Langsung buka tab baru WhatsApp dengan pesan yang sudah di encode
+  window.open(waURL, "_blank");
+});
+
 </script>
-</body>
+</body> 
+</html> 
